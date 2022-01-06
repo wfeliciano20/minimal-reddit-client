@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer utilities {
+    .grid-template-area-small {
+        grid-template-areas: "navbar" "main" "sidebar";
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(64px, auto);
+    }
+    .grid-template-area-large {
+        grid-template-areas: "navbar navbar" "main sidebar" "main sidebar";
+        grid-template-columns: 1.875fr 0.125fr;
+        grid-auto-rows: minmax(64px, auto);
+    }
+    .grid-area-navbar {
+        grid-area: navbar;
+    }
+    .grid-area-main {
+        grid-area: main;
+    }
+    .grid-area-sidebar {
+        grid-area: sidebar;
+    }
+}
