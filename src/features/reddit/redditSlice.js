@@ -9,7 +9,7 @@ const redditSlice = createSlice({
         posts: [],
         isLoading: false,
         error: false,
-        selectedSubreddit: '/r/pics',
+        selectedSubreddit: '/r/pics/',
         searchTerm: ''
     },
     reducers: {
