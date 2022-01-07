@@ -6,7 +6,7 @@ import '../input.css';
 
 function App() {
   return (
-    <div className="grid grid-cols-1 grid-template-area-small gap-5 lg:grid-cols-3 lg:grid-template-area-large">
+    <div className="grid grid-cols-1 grid-template-area-small gap-6 gap-y-6 lg:grid-cols-3 lg:grid-template-area-large">
       <Navbar />
       <MainSection />
       <Sidebar />
