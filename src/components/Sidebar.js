@@ -42,7 +42,7 @@ const Sidebar = () => {
           <ul className="flex flex-col">
             {subreddits.map(subreddit => {
               return (
-                <li key={subreddit.id} className={`hover:bg-blue-500 hover:text-white rounded-2xl mb-2`}>
+                <li key={subreddit.id} className={` hover:border-l-[5px] hover:border-blue-500 mb-2`}>
                   <button 
                   onClick={()=>{dispatch(selectSubreddit(subreddit.url))}}
                   className={`font-bold py-[5px] px-6 rounded-full ${selectedSubreddit ===  subreddit.url && "text-orange-500"}`}>

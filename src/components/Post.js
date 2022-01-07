@@ -28,7 +28,7 @@ const Post = ({post,index, onToggleComments}) => {
 
   return (
     <div className='hover:shadow-xl border-2 rounded-xl mb-5'>
-      <article key={post.id} className='flex flex-row mb-5 p-5 w-[100%] rounded-2xl'>
+      <article key={post.id} className='flex flex-row mb-5 p-5 min-w-[100%] rounded-2xl'>
         <div className="mt-5 mr-4 flex flex-col justify-start items-center">
           <TiArrowUpOutline className="text-2xl hover:text-green-500 active:text-green-500" />
           <p>{ shortenNumber(post.ups,1) }</p>
