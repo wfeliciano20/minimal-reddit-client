@@ -37,12 +37,12 @@ const Sidebar = () => {
 
   if(subreddits && !isLoading && !error) {
     return (
-        <div className={`rounded-2xl shadow-2xl w-[15rem]  col-span-1 grid-area-sidebar lg:col-span-1`}>
+        <div className={`rounded-2xl shadow-2xl w-[15rem] h-[200rem]  col-span-1 grid-area-sidebar lg:col-span-1`}>
           <h1 className="font-bold text-2xl p-5">Subreddits</h1>
           <ul className="flex flex-col">
             {subreddits.map(subreddit => {
               return (
-                <li key={subreddit.id} className={`hover:bg-blue-500 hover:text-white rounded-2xl mb-2 ${selectedSubreddit === subreddit.url && "bg-blue-300"}`}>
+                <li key={subreddit.id} className={`hover:bg-blue-500 hover:text-white rounded-2xl mb-2`}>
                   <button 
                   onClick={()=>{dispatch(selectSubreddit(subreddit.url))}}
                   className={`font-bold py-[5px] px-6 rounded-full ${selectedSubreddit ===  subreddit.url && "text-orange-500"}`}>

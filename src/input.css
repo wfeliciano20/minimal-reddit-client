@@ -8,7 +8,7 @@
         grid-auto-rows: minmax(64px, auto);
     }
     .grid-template-area-large {
-        grid-template-areas: "navbar navbar" "main sidebar" "main sidebar";
+        grid-template-areas: "navbar navbar" "main sidebar";
         grid-template-columns: 1.875fr 0.125fr;
         grid-auto-rows: minmax(64px, auto);
     }
