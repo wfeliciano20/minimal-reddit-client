@@ -16,5 +16,5 @@ export const getPostForSubreddit = async(subreddit) => {
 export const getCommentsForPost = async(permalink) => {
     const response = await fetch(`${API_ROOT}${permalink}.json`)
     const json = await response.json();
-    return json[1].data.children.map((subreddit) => subreddit.data);
+    return json[1].data.children.map((comment) => comment.data);
 }

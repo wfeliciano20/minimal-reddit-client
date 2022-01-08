@@ -19,7 +19,7 @@ const MainSection = () => {
   const onToggleComments = (index) => {
     const getComments = (permalink) => {
       dispatch(fetchCommentsForPost(index,permalink));
-      dispatch(toggleShowingComments({index}));
+      // dispatch(toggleShowingComments({index}));
     }
     return getComments;
   }
@@ -27,7 +27,7 @@ const MainSection = () => {
   if(isLoading) {
     <div className={`rounded-2xl shadow-2xl w-full h-screen grid-area-main lg:col-span-2`}>
         <AnimatedList animation="zoom">
-          { Array(getRandomNumber(3, 10)).fill(<PostLoading key={Math.floor(Math.random()*getRandomNumber(3, 10))} />)}
+          { Array(getRandomNumber(3, 10)).fill(<PostLoading key={Math.floor(Math.random() * getRandomNumber(3, 10))} />)}
         </AnimatedList>
     </div>
   }

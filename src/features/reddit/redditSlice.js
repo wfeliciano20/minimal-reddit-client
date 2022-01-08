@@ -54,6 +54,8 @@ const redditSlice = createSlice({
             state.posts[action.payload].error = false;
         },
         getCommentsForPostSuccess: (state, action) => {
+            state.posts[action.payload.index].loadingComments = false;
+            state.posts[action.payload.index].error = false;
             state.isLoading = false;
             state.error = false;
             state.posts[action.payload.index].comments = action.payload.comments;
@@ -63,7 +65,7 @@ const redditSlice = createSlice({
             state.error = true;
         },
         toggleShowingComments: (state, action) => {
-            state.posts[action.payload].showingComments = !state.posts[action.payload].showingComments;
+            state.posts[action.payload.index].showingComments = !state.posts[action.payload.index].showingComments;
         }
     }
 });
@@ -113,7 +115,7 @@ export const fetchPosts = (subreddit) => async dispatch => {
     dispatch(getPostsPending());
     try {
         const posts = await getPostForSubreddit(subreddit);
-        const postWitMetadata = posts.map(post => {
+        const postWithMetadata = posts.map(post => {
             return {
                 ...post,
                 showingComments: false,
@@ -122,7 +124,7 @@ export const fetchPosts = (subreddit) => async dispatch => {
                 comments: []
             }
         });
-        dispatch(getPostsSuccess(postWitMetadata));
+        dispatch(getPostsSuccess(postWithMetadata));
     } catch (error) {
         dispatch(getPostsFailure());
     }
