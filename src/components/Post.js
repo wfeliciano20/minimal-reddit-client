@@ -32,16 +32,16 @@ const Post = ({post, onToggleComments}) => {
   }
 
   return (
-    <div className='hover:shadow-xl border-2 rounded-xl mb-5'>
+    <div className='hover:shadow-xl w-[100%] border-2 rounded-xl mb-5'>
       <article key={post.id} className='flex flex-row mb-5 p-5 w-ful rounded-2xl '>
         <div className="mt-5 mr-4 flex flex-col justify-start items-center">
           <TiArrowUpOutline className="text-2xl hover:text-green-500 active:text-green-500" />
           <p>{ shortenNumber(post.ups,1) }</p>
           <TiArrowDownOutline className="text-2xl hover:text-red-500 active:text-red-500" />
         </div>
-        <div className="content mx-auto">
+        <div className="content w-[100%] mx-auto">
           <h3 className="font-bold text-2xl">{post.title}</h3>
-          {post.url && <img className="w-full object-cover object-center mt-5 mb-5" src={post.url} alt="" /> } 
+          {post.url && <img className="w-[100%] object-cover object-center mt-5 mb-5" src={post.url} alt="" /> } 
           <hr />
           <div className="submenu flex flex-row justify-between">
             <h5>by: <span className="text-blue-600 font-bold">{post.author}</span></h5>

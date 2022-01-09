@@ -46,8 +46,8 @@ const MainSection = () => {
   }
 //'w-full grid-area-main lg:col-span-2'
   return (
-    <div className={`rounded-2xl  shadow-2xl p-5 w-full grid-area-main lg:col-span-2`}>
-      <div className=''>
+    // <div className={`rounded-2xl  shadow-2xl p-5 w-full grid-area-main lg:col-span-2`}>
+      <div className='w-full grid-area-main lg:col-span-2'>
         {posts.map((post, index) => {
             return (
               <div key={post.id} className="flex flex-column justify-around align-start flex-wrap ">
@@ -59,7 +59,7 @@ const MainSection = () => {
             )})
           }
       </div>  
-    </div>
+    // {/* </div> */}
     )
 }
 
