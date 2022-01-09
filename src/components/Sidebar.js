@@ -37,7 +37,7 @@ const Sidebar = () => {
 
   if(subreddits && !isLoading && !error) {
     return (
-        <div className={`rounded-2xl shadow-2xl w-[15rem] h-[200rem]  col-span-1 grid-area-sidebar lg:col-span-1`}>
+        <div className={`rounded-2xl shadow-2xl w-[15rem] h-[200rem] border-2 col-span-1 grid-area-sidebar lg:col-span-1`}>
           <h1 className="font-bold text-2xl p-5">Subreddits</h1>
           <ul className="flex flex-col">
             {subreddits.map(subreddit => {
