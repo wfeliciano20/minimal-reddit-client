@@ -3,7 +3,7 @@ import moment from 'moment';
 import Comment from './Comment';
 import '../input.css';
 
-const Post = ({post,index, onToggleComments}) => {
+const Post = ({post, onToggleComments}) => {
 
   const renderComments = () => {
     if(post.loadingComments){
@@ -50,14 +50,12 @@ const Post = ({post,index, onToggleComments}) => {
             <div className="flex flex-row justify-center items-center">
               <button
                 type="button"
-                className={`icon-action-button mr-2 ${
-                  post.showingComments && 'showing-comments'
-                }`}
+                className={`icon-action-button mr-2`}
                 onClick={() => onToggleComments(post.permalink)}
                 aria-label="Show comments"
                 >
                   <TiMessage className="text-2xl" />
-                </button>
+              </button>
                 <span>{post.num_comments}</span>
             </div>
           </div>

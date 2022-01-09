@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { AnimatedList } from 'react-animated-list';
-import {selectSelectedSubreddit, fetchPosts, selectIsLoading, selectError, selectPosts, fetchCommentsForPost, toggleShowingComments}  from '../features/reddit/redditSlice.js';
+import {selectSelectedSubreddit, fetchPosts, selectIsLoading, selectError, selectPosts, fetchCommentsForPost}  from '../features/reddit/redditSlice.js';
 import Post from '../components/Post';
 import PostLoading from '../components/PostLoading';
 
@@ -19,7 +19,6 @@ const MainSection = () => {
   const onToggleComments = (index) => {
     const getComments = (permalink) => {
       dispatch(fetchCommentsForPost(index,permalink));
-      // dispatch(toggleShowingComments({index}));
     }
     return getComments;
   }
@@ -45,24 +44,22 @@ const MainSection = () => {
       </div>
     </div>
   }
-
+//'w-full grid-area-main lg:col-span-2'
   return (
-      // <div className={`rounded-2xl  shadow-2xl w-full grid-area-main lg:col-span-2`}>
-      <div className='w-full grid-area-main lg:col-span-2'>
+    <div className={`rounded-2xl  shadow-2xl p-5 w-full grid-area-main lg:col-span-2`}>
+      <div className=''>
         {posts.map((post, index) => {
             return (
               <div key={post.id} className="flex flex-column justify-around align-start flex-wrap ">
                 <Post
                   post={post}
-                  index={index}
                   onToggleComments={onToggleComments(index)}
                 />
               </div>
             )})
           }
-      </div>
-        
-      // </div>
+      </div>  
+    </div>
     )
 }
 
