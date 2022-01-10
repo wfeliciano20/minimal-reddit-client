@@ -42,7 +42,7 @@ const redditSlice = createSlice({
         selectSubreddit: (state, action) => {
             state.selectedSubreddit = action.payload;
         },
-        searchTerm: (state, action) => {
+        setSearchTerm: (state, action) => {
             state.searchTerm = action.payload;
         },
         startGetCommentsForPostPending: (state, action) => {
@@ -79,7 +79,7 @@ export const {
     getPostsSuccess,
     getPostsFailure,
     selectSubreddit,
-    searchTerm,
+    setSearchTerm,
     startGetCommentsForPostPending,
     getCommentsForPostSuccess,
     getCommentsForPostFailure,
