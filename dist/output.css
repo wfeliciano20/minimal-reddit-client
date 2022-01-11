@@ -989,6 +989,38 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: 0.5rem !important;
 }
 
+.mt-5 {
+  margin-top: 1.25rem !important;
+}
+
+.mt-2 {
+  margin-top: 0.5rem !important;
+}
+
+.mt-5 {
+  margin-top: 1.25rem !important;
+}
+
+.mt-1 {
+  margin-top: 0.25rem !important;
+}
+
+.mt-2 {
+  margin-top: 0.5rem !important;
+}
+
+.mt-5 {
+  margin-top: 1.25rem !important;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem !important;
+}
+
+.mt-2 {
+  margin-top: 0.5rem !important;
+}
+
 .flex {
   display: flex !important;
 }
@@ -1157,6 +1189,42 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 64px !important;
 }
 
+.h-\[74px\] {
+  height: 74px !important;
+}
+
+.h-10 {
+  height: 2.5rem !important;
+}
+
+.h-\[64px\] {
+  height: 64px !important;
+}
+
+.h-\[74px\] {
+  height: 74px !important;
+}
+
+.h-10 {
+  height: 2.5rem !important;
+}
+
+.h-\[64px\] {
+  height: 64px !important;
+}
+
+.h-\[74px\] {
+  height: 74px !important;
+}
+
+.h-10 {
+  height: 2.5rem !important;
+}
+
+.h-\[64px\] {
+  height: 64px !important;
+}
+
 .w-full {
   width: 100% !important;
 }
@@ -1261,6 +1329,30 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-full {
   width: 100% !important;
+}
+
+.w-\[5rem\] {
+  width: 5rem !important;
+}
+
+.w-52 {
+  width: 13rem !important;
+}
+
+.w-\[5rem\] {
+  width: 5rem !important;
+}
+
+.w-52 {
+  width: 13rem !important;
+}
+
+.w-\[5rem\] {
+  width: 5rem !important;
+}
+
+.w-52 {
+  width: 13rem !important;
 }
 
 .w-\[5rem\] {
@@ -2065,6 +2157,36 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.25rem !important;
 }
 
+.text-3xl {
+  font-size: 1.875rem !important;
+  line-height: 2.25rem !important;
+}
+
+.text-sm {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+
+.text-3xl {
+  font-size: 1.875rem !important;
+  line-height: 2.25rem !important;
+}
+
+.text-sm {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+
+.text-3xl {
+  font-size: 1.875rem !important;
+  line-height: 2.25rem !important;
+}
+
+.text-sm {
+  font-size: 0.875rem !important;
+  line-height: 1.25rem !important;
+}
+
 .font-bold {
   font-weight: 700 !important;
 }
@@ -2131,6 +2253,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .drop-shadow-2xl {
   --tw-drop-shadow: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15)) !important;
+  -webkit-filter: var(--tw-filter) !important;
+          filter: var(--tw-filter) !important;
+}
+
+.filter {
   -webkit-filter: var(--tw-filter) !important;
           filter: var(--tw-filter) !important;
 }
@@ -2832,6 +2959,42 @@ Ensure the default browser behavior of the `hidden` attribute.
     margin-top: 0.75rem !important;
   }
 
+  .md\:mt-3 {
+    margin-top: 0.75rem !important;
+  }
+
+  .md\:mt-2 {
+    margin-top: 0.5rem !important;
+  }
+
+  .md\:mt-3 {
+    margin-top: 0.75rem !important;
+  }
+
+  .md\:mt-2 {
+    margin-top: 0.5rem !important;
+  }
+
+  .md\:mt-3 {
+    margin-top: 0.75rem !important;
+  }
+
+  .md\:mt-2 {
+    margin-top: 0.5rem !important;
+  }
+
+  .md\:w-\[15rem\] {
+    width: 15rem !important;
+  }
+
+  .md\:w-\[15rem\] {
+    width: 15rem !important;
+  }
+
+  .md\:w-\[15rem\] {
+    width: 15rem !important;
+  }
+
   .md\:w-\[15rem\] {
     width: 15rem !important;
   }
@@ -2960,6 +3123,36 @@ Ensure the default browser behavior of the `hidden` attribute.
     font-size: 1.25rem !important;
     line-height: 1.75rem !important;
   }
+
+  .md\:text-4xl {
+    font-size: 2.25rem !important;
+    line-height: 2.5rem !important;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem !important;
+    line-height: 2.5rem !important;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem !important;
+    line-height: 2.5rem !important;
+  }
+
+  .md\:text-xl {
+    font-size: 1.25rem !important;
+    line-height: 1.75rem !important;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -3001,6 +3194,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:col-span-1 {
     grid-column: span 1 / span 1 !important;
+  }
+
+  .lg\:col-span-3 {
+    grid-column: span 3 / span 3 !important;
+  }
+
+  .lg\:col-span-3 {
+    grid-column: span 3 / span 3 !important;
+  }
+
+  .lg\:col-span-3 {
+    grid-column: span 3 / span 3 !important;
   }
 
   .lg\:col-span-3 {
@@ -3112,6 +3317,36 @@ Ensure the default browser behavior of the `hidden` attribute.
   .lg\:text-4xl {
     font-size: 2.25rem !important;
     line-height: 2.5rem !important;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem !important;
+    line-height: 1 !important;
+  }
+
+  .lg\:text-2xl {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem !important;
+    line-height: 1 !important;
+  }
+
+  .lg\:text-2xl {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
+  }
+
+  .lg\:text-5xl {
+    font-size: 3rem !important;
+    line-height: 1 !important;
+  }
+
+  .lg\:text-2xl {
+    font-size: 1.5rem !important;
+    line-height: 2rem !important;
   }
 
   .lg\:text-5xl {
