@@ -12,10 +12,12 @@ const MainSection = () => {
   const posts = useSelector(selectPostsContainingSearchTerm);
   let isLoading = useSelector(selectIsLoading);
   let error = useSelector(selectError);
+  const skeletonArr = Array(getRandomNumber(3, 10));
 
   useEffect(() => {
     dispatch(fetchPosts(selectedSubreddit));
   }, [dispatch, selectedSubreddit]);
+
 
   const onToggleComments = (index) => {
     const getComments = (permalink) => {
@@ -25,16 +27,18 @@ const MainSection = () => {
   }
 
   if(isLoading) {
-    <div className={`rounded-2xl shadow-2xl w-full h-screen grid-area-main lg:col-span-2`}>
+    return (
         <AnimatedList animation="zoom">
-          { Array(getRandomNumber(3, 10)).fill(<PostLoading key={Math.floor(Math.random() * getRandomNumber(3, 10))} />)}
+          { 
+            skeletonArr.map((item,index) => <PostLoading key={index} />)
+          }
         </AnimatedList>
-    </div>
+    )
   }
 
   if(error) {
     <div className={`rounded-2xl shadow-2xl w-full h-screen grid-area-main lg:col-span-2 `}>
-        <div className="error">
+        <div className="flex flex-col justify-center items-center">
           <h2>Failed to load posts.</h2>
           <button
             type="button"
@@ -46,10 +50,10 @@ const MainSection = () => {
     </div>
   }
 
-  if(posts.length === 0){
+  if(posts.length === 0 && searchTerm !== '') {
     return (
       <div className={`rounded-2xl shadow-2xl w-full h-screen grid-area-main lg:col-span-2`}>
-        <div className="error">
+        <div className="flex flex-col justify-center items-center">
           <h2>No posts match `${searchTerm}`</h2>
           <button
             type="button"

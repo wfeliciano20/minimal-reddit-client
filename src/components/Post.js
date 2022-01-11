@@ -10,6 +10,8 @@ const Post = ({post, onToggleComments}) => {
   const [isNeutral,setIsNeutral] = useState(true);
   const [deactivatedUpVote,setDeactivatedUpVote] = useState(false);
   const [deactivatedDownVote,setDeactivatedDownVote] = useState(false);
+  const [votes,setVotes] = useState(post.ups);
+  const [currentVotes,setCurrentVotes] = useState(post.ups);
 
 
   const renderComments = () => {
@@ -41,9 +43,13 @@ const Post = ({post, onToggleComments}) => {
   const handleUpVote = () => {
     setIsUpVote(true);
     setIsNeutral(false);
+    if(isDownVote){
+      setCurrentVotes(post.ups)
+    }
     setIsDownVote(false);
     setDeactivatedUpVote(false);
     setDeactivatedDownVote(true);
+    setVotes(currentVotes + 1);
   }
 
   const handleUpVoteToNeutral = () => {
@@ -52,14 +58,19 @@ const Post = ({post, onToggleComments}) => {
     setIsDownVote(false);
     setDeactivatedUpVote(true);
     setDeactivatedDownVote(true);
+    setVotes(post.ups);
   }
 
   const handleDownVote = () => {
     setIsDownVote(true);
     setIsNeutral(false);
+    if(isUpVote){
+      setCurrentVotes(post.ups);
+    }
     setIsUpVote(false);
     setDeactivatedDownVote(false);
     setDeactivatedUpVote(true);
+    setVotes(currentVotes - 1);
   }
 
   const handleDownVoteToNeutral = () => {
@@ -67,9 +78,10 @@ const Post = ({post, onToggleComments}) => {
     setIsNeutral(true);
     setIsUpVote(false);
     setDeactivatedDownVote(true);
-    setDeactivatedUpVote(true);
+    setDeactivatedUpVote(false);
+    setVotes(post.ups);
   }
-
+  
   return (
     <div className='hover:shadow-xl w-[100%] border-2 rounded-xl mb-5'>
       <article key={post.id} className='flex flex-row mb-5 p-5 w-ful rounded-2xl '>
@@ -84,7 +96,7 @@ const Post = ({post, onToggleComments}) => {
               <TiArrowUpThick className="text-2xl text-green-500" />
             </button>
           }
-            <p className={`${isUpVote && 'text-green-500'} ${isDownVote && 'text-red-500'}`} >{ shortenNumber(post.ups,1) }</p>
+            <p className={`${isUpVote && 'text-green-500'} ${isDownVote && 'text-red-500'}`} >{ shortenNumber(votes,1) }</p>
           {
             (isNeutral || deactivatedDownVote) && <button onClick={handleDownVote}>
               <TiArrowDownOutline className="text-2xl hover:text-red-500 " />
@@ -127,7 +139,7 @@ const Post = ({post, onToggleComments}) => {
   )
 }
 
-export default Post
+export default Post;
 
 const shortenNumber = (num, digits) => {
   const units = ['k', 'M', 'G', 'T', 'P', 'E', 'Z', 'Y'];
