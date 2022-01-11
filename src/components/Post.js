@@ -1,9 +1,16 @@
-import {TiMessage , TiArrowUpOutline, TiArrowDownOutline} from 'react-icons/ti';
+import {useState} from 'react';
+import {TiMessage , TiArrowUpOutline, TiArrowDownOutline, TiArrowDownThick, TiArrowUpThick} from 'react-icons/ti';
 import moment from 'moment';
 import Comment from './Comment';
 import '../input.css';
 
 const Post = ({post, onToggleComments}) => {
+  const [isUpVote,setIsUpVote] = useState(false);
+  const [isDownVote,setIsDownVote] = useState(false);
+  const [isNeutral,setIsNeutral] = useState(true);
+  const [deactivatedUpVote,setDeactivatedUpVote] = useState(false);
+  const [deactivatedDownVote,setDeactivatedDownVote] = useState(false);
+
 
   const renderComments = () => {
     if(post.loadingComments){
@@ -31,36 +38,87 @@ const Post = ({post, onToggleComments}) => {
     }
   }
 
+  const handleUpVote = () => {
+    setIsUpVote(true);
+    setIsNeutral(false);
+    setIsDownVote(false);
+    setDeactivatedUpVote(false);
+    setDeactivatedDownVote(true);
+  }
+
+  const handleUpVoteToNeutral = () => {
+    setIsUpVote(false);
+    setIsNeutral(true);
+    setIsDownVote(false);
+    setDeactivatedUpVote(true);
+    setDeactivatedDownVote(true);
+  }
+
+  const handleDownVote = () => {
+    setIsDownVote(true);
+    setIsNeutral(false);
+    setIsUpVote(false);
+    setDeactivatedDownVote(false);
+    setDeactivatedUpVote(true);
+  }
+
+  const handleDownVoteToNeutral = () => {
+    setIsDownVote(false);
+    setIsNeutral(true);
+    setIsUpVote(false);
+    setDeactivatedDownVote(true);
+    setDeactivatedUpVote(true);
+  }
+
   return (
     <div className='hover:shadow-xl w-[100%] border-2 rounded-xl mb-5'>
       <article key={post.id} className='flex flex-row mb-5 p-5 w-ful rounded-2xl '>
         <div className="mt-5 mr-4 flex flex-col justify-start items-center">
-          <TiArrowUpOutline className="text-2xl hover:text-green-500 active:text-green-500" />
-          <p>{ shortenNumber(post.ups,1) }</p>
-          <TiArrowDownOutline className="text-2xl hover:text-red-500 active:text-red-500" />
+          {
+            (isNeutral || deactivatedUpVote) && <button onClick={handleUpVote}>
+              <TiArrowUpOutline className="text-2xl hover:text-green-500 " />
+            </button> 
+          }
+          {
+            isUpVote && <button onClick={handleUpVoteToNeutral}>
+              <TiArrowUpThick className="text-2xl text-green-500" />
+            </button>
+          }
+            <p className={`${isUpVote && 'text-green-500'} ${isDownVote && 'text-red-500'}`} >{ shortenNumber(post.ups,1) }</p>
+          {
+            (isNeutral || deactivatedDownVote) && <button onClick={handleDownVote}>
+              <TiArrowDownOutline className="text-2xl hover:text-red-500 " />
+            </button>
+          }
+          {
+            isDownVote && <button onClick={handleDownVoteToNeutral}>
+              <TiArrowDownThick className="text-2xl text-red-500" />
+            </button>
+          }
         </div>
-        <div className="content w-[100%] mx-auto">
-          <h3 className="font-bold text-2xl">{post.title}</h3>
-          {post.url && <img className="w-[100%] object-cover object-center mt-5 mb-5" src={post.url} alt="" /> } 
-          <hr />
-          <div className="submenu flex flex-row justify-between">
-            <h5>by: <span className="text-blue-600 font-bold">{post.author}</span></h5>
-            <span>{moment.unix(post.created_utc).fromNow()}</span>
 
-            <div className="flex flex-row justify-center items-center">
-              <button
-                type="button"
-                className={`icon-action-button mr-2`}
-                onClick={() => onToggleComments(post.permalink)}
-                aria-label="Show comments"
-                >
-                  <TiMessage className="text-2xl" />
-              </button>
-                <span>{post.num_comments}</span>
+        <div className="content w-[100%] mx-auto">
+            <h3 className="font-bold text-2xl">{post.title}</h3>
+            {post.url && <img className="w-[100%] object-cover object-center mt-5 mb-5" src={post.url} alt="" /> } 
+            <hr />
+            <div className="submenu flex flex-row justify-between">
+              <h5>by: <span className="text-blue-600 font-bold">{post.author}</span></h5>
+              <span>{moment.unix(post.created_utc).fromNow()}</span>
+
+              <div className="flex flex-row justify-center items-center">
+                <button
+                  type="button"
+                  className={`icon-action-button mr-2`}
+                  onClick={() => onToggleComments(post.permalink)}
+                  aria-label="Show comments"
+                  >
+                    <TiMessage className="text-2xl" />
+                </button>
+                  <span>{post.num_comments}</span>
+              </div>
             </div>
-          </div>
-          <div>
-              {renderComments()}
+            <div>
+                {renderComments()}
             </div>
         </div>
       </article>
