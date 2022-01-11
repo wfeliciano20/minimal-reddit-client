@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { getSubreddits, getPostForSubreddit, getCommentsForPost } from '../../Api/redditApi.js';
 
 
@@ -140,3 +140,16 @@ export const fetchCommentsForPost = (index, permalink) => async dispatch => {
         dispatch(getCommentsForPostFailure());
     }
 }
+
+export const selectPostsContainingSearchTerm = createSelector(
+    //array of selectors
+    [selectPosts, selectSearchTerm],
+    // pass the state selected by the selectors
+    (posts, searchTerm) => {
+        // use logic to return filtered posts
+        if (searchTerm) {
+            return posts.filter(post => post.title.toLowerCase().includes(searchTerm.toLowerCase()));
+        }
+        return posts;
+    }
+)
