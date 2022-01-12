@@ -1,6 +1,5 @@
 import React,{useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import { AnimatedList } from 'react-animated-list';
 import {selectSelectedSubreddit, fetchPosts, selectIsLoading, selectError, selectPostsContainingSearchTerm, fetchCommentsForPost, setSearchTerm, selectSearchTerm}  from '../features/reddit/redditSlice.js';
 import Post from '../components/Post';
 import PostLoading from '../components/PostLoading';
@@ -12,7 +11,6 @@ const MainSection = () => {
   const posts = useSelector(selectPostsContainingSearchTerm);
   let isLoading = useSelector(selectIsLoading);
   let error = useSelector(selectError);
-  const skeletonArr = Array(getRandomNumber(3, 10));
 
   useEffect(() => {
     dispatch(fetchPosts(selectedSubreddit));
@@ -28,11 +26,11 @@ const MainSection = () => {
 
   if(isLoading) {
     return (
-        <AnimatedList animation="zoom">
-          { 
-            skeletonArr.map((item,index) => <PostLoading key={index} />)
-          }
-        </AnimatedList>
+      <div className={`rounded-2xl flex flex-col shadow-2xl w-[100%] h-screen grid-area-main col-span-1 lg:col-span-2`}>
+        <PostLoading />
+        <PostLoading />
+        <PostLoading />
+      </div>
     )
   }
 
