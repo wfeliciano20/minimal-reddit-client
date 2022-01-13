@@ -1,6 +1,5 @@
 import React,{useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Skeleton from 'react-loading-skeleton';
 import { selectSubreddits, fetchSubreddits, selectIsLoading, selectError, selectSelectedSubreddit, selectSubreddit } from '../features/reddit/redditSlice';
 import '../input.css';
 
@@ -21,8 +20,29 @@ const Sidebar = () => {
     return (
       <div className={`rounded-2xl shadow-2xl w-[15rem] h-[52rem] col-span-1 grid-area-sidebar lg:col-span-1`}>
         <h1 className="font-bold text-2xl p-5">Subreddits</h1>
-        <div>
-          <Skeleton count={subreddits.length} height={80} />
+        <div className="mx-10 my-5">
+          <div className="rounded-full w-[75px] h-[75px] bg-slate-300 animate-pulse mb-5"></div>
+          <div className="bg-slate-300 rounded-lg w-[4rem] h-[1rem] ml-2 animate-pulse"></div>
+        </div>
+        <div className="mx-10 my-5">
+          <div className="rounded-full w-[75px] h-[75px] bg-slate-300 animate-pulse mb-5"></div>
+          <div className="bg-slate-300 rounded-lg w-[4rem] h-[1rem] ml-2 animate-pulse"></div>
+        </div>
+        <div className="mx-10 my-5">
+          <div className="rounded-full w-[75px] h-[75px] bg-slate-300 animate-pulse mb-5"></div>
+          <div className="bg-slate-300 rounded-lg w-[4rem] h-[1rem] ml-2 animate-pulse"></div>
+        </div>
+        <div className="mx-10 my-5">
+          <div className="rounded-full w-[75px] h-[75px] bg-slate-300 animate-pulse mb-5"></div>
+          <div className="bg-slate-300 rounded-lg w-[4rem] h-[1rem] ml-2 animate-pulse"></div>
+        </div>
+        <div className="mx-10 my-5">
+          <div className="rounded-full w-[75px] h-[75px] bg-slate-300 animate-pulse mb-5"></div>
+          <div className="bg-slate-300 rounded-lg w-[4rem] h-[1rem] ml-2 animate-pulse"></div>
+        </div>
+        <div className="mx-10 my-5">
+          <div className="rounded-full w-[75px] h-[75px] bg-slate-300 animate-pulse mb-5"></div>
+          <div className="bg-slate-300 rounded-lg w-[4rem] h-[1rem] ml-2 animate-pulse"></div>
         </div>
       </div>)
   }
